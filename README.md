@@ -12,13 +12,11 @@ Das vollständige Konzept steht in **[DESIGN.md](./DESIGN.md)**.
 
 ---
 
-## Was jetzt drin ist — Phase 0
+## Was jetzt drin ist — Phasen 0 & 1
 
-Phase 0 des Roadmaps (DESIGN.md §9): **statisches Nachschlagen + Visualisieren, kein Zeitverlauf.**
 Pilot-Domäne sind die Cannabinoide (§10) mit dem Erststart **THC → CB1**.
 
-Die aktuelle App zeigt für THC:
-
+### Phase 0 — statisches Nachschlagen + Visualisieren
 - **Wirkstoff-Steckbrief** (Identifikatoren, Lipophilie) — real aus **PubChem** (CID 16078).
 - **Ziel CB1** (Gen, UniProt, Typ, Funktion) — real aus **UniProt** (P21554), plus die
   experimentellen **PDB-Strukturen** aus der **RCSB PDB** (Agonist-gebundene Referenz-Pose).
@@ -29,9 +27,20 @@ Die aktuelle App zeigt für THC:
 - **Mechanismus** (Gi/o-Kopplung → Adenylylzyklase-Hemmung → cAMP-Abfall → retrograde
   Neurotransmitter-Hemmung), Schritt für Schritt.
 
+### Phase 1 — Zeitverlauf (Pharmakokinetik)
+- **Konzentrations-Zeit-Kurve**: Applikationsweg (inhalativ / oral / i.v.) und Dosis wählen,
+  Plasmakonzentration von **THC** und dem **aktiven Metaboliten 11-OH-THC** über 48 h sehen.
+- **Animierte Körper-Anflutung**: der Körper-Modus „Konzentration" färbt die Organe per
+  Heat-Skala nach simulierter Gewebe-Konzentration; Zeitleiste/▶ animiert die Verteilung —
+  gut durchblutete Organe fluten früh an, das **Fett-Depot** hält THC lange (lange terminale t½).
+- **Modell**: 3-Kompartiment-Modell (zentral / gut durchblutet / Fett) + Resorptionsdepot +
+  Metabolit, client-seitig per **Runge-Kutta (RK4)** integriert (`web/pk.js`) — bewusst
+  vereinfacht, **kein PBPK, nicht klinisch**. Parameter (Literatur-Größenordnungen) in
+  `data/pk/thc.json`, isoliert getestet in `test/pk.test.mjs`.
+
 **Jede fachliche Angabe** trägt einen Provenienz-Chip (Quelle), eine Konfidenz-Markierung und
-ein **Modus-Badge** („Nachgeschlagen" vs. „Vorhersage"). In Phase 0 ist alles nachgeschlagen —
-die Vorhersage-Kennzeichnung ist bereits eingebaut, damit Modus B (Phase 3) sie nur noch nutzt.
+ein **Modus-Badge**: **Nachgeschlagen** (belegt), **Simulation** (berechneter Zeitverlauf) oder
+**Vorhersage** (Phase 3, noch nicht aktiv). Die Trennung belegt/berechnet/geschätzt ist zentral.
 
 ### Umsetzungsentscheidung
 - **Web-first** (statt Python-first): Phase 0 ist visualisierungslastig, nicht rechenlastig,
@@ -69,11 +78,17 @@ data/                     Daten-Schicht (JSON, provenienzbehaftet)
   interactions/thc-cb1.json thc-cb2.json
   tissue-expression/cnr1.json cnr2.json
   cascades/cb1-gio.json
+  pk/thc.json             PK-Parameter (Phase 1), provenienzbehaftet
 web/                      Visualisierungs-Schicht
   index.html  styles.css  app.js  body.js
+  pk.js                   PK-Modell (3-Kompartiment + Metabolit, RK4)
+  chart.js                Konzentrations-Zeit-Chart (Inline-SVG)
+test/pk.test.mjs          isolierte Verifikation des PK-Modells (node)
 DESIGN.md                 vollständiges Design-Dokument (Spezifikation)
 NOTICE.md                 Lizenzhinweise der Datenquellen
 ```
+
+**PK-Modell testen** (ohne Browser): `node test/pk.test.mjs`
 
 Die Provenienz-Konvention (jedes Feld als `{value, source, confidence, mode}`) ist in
 [data/schema.md](./data/schema.md) beschrieben.
@@ -85,17 +100,20 @@ Die Provenienz-Konvention (jedes Feld als `{value, source, confidence, mode}`) i
 | Phase | Ziel | Status |
 |------:|------|--------|
 | **0** | Ein Wirkstoff, statisch (Ziel, Pose, Gewebe, Mechanismus) | ✅ in diesem Repo |
-| 1 | Zeitverlauf (Pharmakokinetik): Dosis + Weg → Konzentration über Zeit | offen |
-| 2 | Körper wird bearbeitbar (Individualisierung, §7) | offen |
+| **1** | Zeitverlauf (Pharmakokinetik): Dosis + Weg → Konzentration über Zeit, animiert | ✅ in diesem Repo |
+| 2 | Körper wird bearbeitbar (Individualisierung, §7) | nächste Phase |
 | 3 | Verallgemeinerung auf „beliebig" (Modus B, SMILES-Eingabe, mit Konfidenz) | offen |
 | 4 | Erklär-Ebene (Mechanismus-Erzählungen, DDI-Warnungen) | offen |
 
 ### Nächste sinnvolle Schritte
-1. Affinitäts- (Ki) und ADME-Werte durch exakt referenzierte Abrufe aus ChEMBL / BindingDB /
+1. **Phase 2 (Individualisierung, §7):** Parameter-Panel, das die PK-Parameter re-parametrisiert —
+   z. B. CYP2C9/3A4-Phänotyp → Clearance, Körperfett-% → Fett-Kompartiment, Nierenfunktion.
+   Umschalten EM→PM soll die Kurve sichtbar verschieben; „Personas" als Voreinstellungen.
+2. Affinitäts- (Ki) und ADME-Werte durch exakt referenzierte Abrufe aus ChEMBL / BindingDB /
    PDSP Ki DB ersetzen (aktuell Literatur-Platzhalter, als solche gekennzeichnet).
-2. Phase 1: einfaches ODE-Kompartimentmodell (THC, oral/inhalativ) → Konzentrations-Zeit-Kurve
-   und animierte Körper-Anflutung.
-3. Datenpersistenz von JSON auf SQLite umstellen (Struktur bleibt, siehe schema.md).
+3. PK-Parameter gegen publizierte THC-Studien kalibrieren bzw. das ODE-Modell durch ein echtes
+   PBPK-Backend (Python, §6.1) ersetzen — die JS-Schnittstelle (`simulate()`) bleibt gleich.
+4. Datenpersistenz von JSON auf SQLite umstellen (Struktur bleibt, siehe schema.md).
 
 ---
 

@@ -19,9 +19,9 @@ Jede *fachliche* Angabe wird als Objekt statt als nackter Wert gespeichert:
 ```
 
 - **`source`** referenziert einen Eintrag in `sources.json` → Herkunft bleibt im Interface sichtbar.
-- **`mode`** trennt **Nachschlagen** (belegtes Wissen) von **Vorhersage** (geschätzt) – das
-  didaktische Leitprinzip des Projekts. In Phase 0 ist alles `lookup`; Phase 3 (Modus B)
-  führt `prediction` ein.
+- **`mode`** trennt **`lookup`** (belegtes Wissen), **`simulation`** (berechneter Zeitverlauf,
+  ab Phase 1) und **`prediction`** (geschätzt, ab Phase 3, Modus B) – das didaktische
+  Leitprinzip des Projekts. Phase 0 = `lookup`; die PK-Parameter (Phase 1) sind `simulation`.
 - **`confidence`** macht Unsicherheit auch innerhalb belegter Werte sichtbar
   (z. B. streuende Ki-Werte über Quellen).
 
@@ -35,6 +35,9 @@ Jede *fachliche* Angabe wird als Objekt statt als nackter Wert gespeichert:
 | `interactions/*.json` | Interaction | Compound↔Target: Wirktyp, Affinität, Signalweg |
 | `tissue-expression/*.json` | TissueExpression | Gewebe-Level je Ziel (treibt die Körper-Hervorhebung) |
 | `cascades/*.json` | Cascade | Signalkaskade Schritt für Schritt |
+| `pk/*.json` | PKModel | PK-Parameter je Wirkstoff: Disposition + Applikationswege (Phase 1) |
 
-Noch nicht instanziiert (spätere Phasen): **Individual** (§7, Phase 2),
-**PKModel** / **SimulationRun** (Phase 1), erweiterte **Provenance**-Historie.
+Der **SimulationRun** (Ergebnis eines Laufs mit Dosis/Weg) wird in Phase 1 zur Laufzeit im
+Browser aus dem PKModel berechnet (`web/pk.js`), noch nicht persistiert. Noch nicht instanziiert
+(spätere Phasen): **Individual** (§7, Phase 2), persistierte **SimulationRun**-Ergebnisse,
+erweiterte **Provenance**-Historie.

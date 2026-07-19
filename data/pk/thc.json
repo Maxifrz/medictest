@@ -1,0 +1,27 @@
+{
+  "compound": "thc",
+  "model": {
+    "type": "3-Kompartiment-Modell + Resorptionsdepot + aktiver Metabolit (11-OH-THC)",
+    "value": "3-Kompartiment (zentral · gut durchblutet · Fett) + Depot + Metabolit",
+    "source": "literatur",
+    "confidence": "low",
+    "mode": "simulation",
+    "note": "Bewusst vereinfacht — KEIN echtes PBPK. Parameter sind Literatur-Groessenordnungen fuer einen ~70-kg-Erwachsenen; didaktisch plausibel, nicht klinisch. Der Zeitverlauf ist berechnet (Simulation), nicht nachgeschlagen. In Phase 2 werden diese Parameter individualisierbar (§7); ein spaeteres Python/PBPK-Backend (§6.1) ersetzt nur die Rechen-Schicht."
+  },
+  "disposition": {
+    "Vc":  { "value": 70,  "unit": "L",   "label": "Zentrales Verteilungsvolumen", "source": "literatur", "confidence": "low",    "mode": "simulation" },
+    "Vp":  { "value": 120, "unit": "L",   "label": "Volumen gut durchblutet",       "source": "literatur", "confidence": "low",    "mode": "simulation" },
+    "Vf":  { "value": 300, "unit": "L",   "label": "Fett-Kompartiment (Depot)",     "source": "literatur", "confidence": "low",    "mode": "simulation", "note": "Gross wegen hoher Lipophilie (XLogP 7) – Grund fuer die lange terminale Halbwertszeit." },
+    "CL":  { "value": 60,  "unit": "L/h", "label": "Clearance (hepatisch)",         "source": "literatur", "confidence": "medium", "mode": "simulation", "note": "Naehe zum hepatischen Blutfluss – THC ist ein High-Extraction-Stoff." },
+    "Q12": { "value": 45,  "unit": "L/h", "label": "Verteilungsclearance zentral↔gut durchblutet", "source": "literatur", "confidence": "low", "mode": "simulation" },
+    "Q13": { "value": 12,  "unit": "L/h", "label": "Verteilungsclearance zentral↔Fett", "source": "literatur", "confidence": "low", "mode": "simulation", "note": "Langsame Umverteilung – THC flutet spaet ins Fett an und wird langsam wieder abgegeben." },
+    "fm":  { "value": 0.4, "unit": "-",   "label": "Anteil Metabolismus zu 11-OH-THC", "source": "literatur", "confidence": "low", "mode": "simulation" },
+    "Vm":  { "value": 55,  "unit": "L",   "label": "Verteilungsvolumen Metabolit",  "source": "literatur", "confidence": "low",    "mode": "simulation" },
+    "CLm": { "value": 35,  "unit": "L/h", "label": "Clearance Metabolit",           "source": "literatur", "confidence": "low",    "mode": "simulation" }
+  },
+  "routes": {
+    "inhalation": { "label": "inhalativ", "F": { "value": 0.27, "source": "literatur", "confidence": "medium", "mode": "simulation" }, "ka": 6.0, "defaultDoseMg": 10, "note": "Schnelle Anflutung, Tmax im Minutenbereich." },
+    "oral":       { "label": "oral",      "F": { "value": 0.06, "source": "literatur", "confidence": "medium", "mode": "simulation" }, "ka": 0.6, "defaultDoseMg": 10, "note": "Hoher First-Pass → niedrige Bioverfuegbarkeit; langsame, traege Resorption." },
+    "iv":         { "label": "i.v.",      "F": { "value": 1.0,  "source": "literatur", "confidence": "high",   "mode": "simulation" }, "ka": null, "defaultDoseMg": 5, "note": "Vollstaendig und sofort systemisch verfuegbar (kein Depot)." }
+  }
+}

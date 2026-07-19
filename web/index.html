@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corpus — Phase 1 · THC Pharmakokinetik</title>
+  <link rel="stylesheet" href="/web/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <h1>Corpus <span class="phase">Phase 1</span></h1>
+      <p class="tagline">Interaktiver Wirkstoff- &amp; Körpersimulator — THC → CB1, Nachschlagen + Pharmakokinetik über Zeit</p>
+    </div>
+    <div class="mode-legend" aria-label="Legende Betriebsmodus">
+      <span class="badge badge-lookup">Nachgeschlagen (belegt)</span>
+      <span class="badge badge-sim">Simulation (berechnet)</span>
+      <span class="badge badge-prediction">Vorhersage (unsicher)</span>
+      <span class="legend-note">Nachgeschlagen = belegt · Simulation = berechneter Zeitverlauf · Vorhersage-Module folgen in Phase 3.</span>
+    </div>
+  </header>
+
+  <div class="disclaimer" role="note">
+    <strong>Hinweis:</strong> Lern- und Forschungswerkzeug. <em>Keine medizinische Beratung.</em>
+    Modelle sind Näherungen; für gesundheitliche Fragen und Dosierungen ist ausschließlich ärztlicher Rat maßgeblich.
+  </div>
+
+  <main id="app" class="layout">
+    <section class="panel body-panel">
+      <div class="panel-head">
+        <h2 id="body-title">Körper</h2>
+        <div class="body-mode" id="body-mode" role="group" aria-label="Darstellung wählen">
+          <button class="bm is-active" data-mode="expression">Expression</button>
+          <button class="bm" data-mode="concentration">Konzentration</button>
+        </div>
+      </div>
+      <div class="target-toggle-row" id="target-toggle-row">
+        <span class="tt-label">Ziel:</span>
+        <div class="target-toggle" id="target-toggle" role="group" aria-label="Ziel auswählen">
+          <button class="tgl is-active" data-target="cb1">CB1</button>
+          <button class="tgl" data-target="cb2">CB2</button>
+          <button class="tgl" data-target="both">Beide</button>
+        </div>
+      </div>
+      <div id="body-container" class="body-container"></div>
+      <div class="expr-legend" id="expr-legend"></div>
+      <div class="conc-legend" id="conc-legend" hidden></div>
+      <p class="hint" id="body-hint"></p>
+    </section>
+
+    <section class="panel info-panel">
+      <div id="loading" class="loading">Lade Daten …</div>
+      <div id="content" hidden>
+        <div id="pk-card"></div>
+        <div id="compound-card"></div>
+        <div id="target-card"></div>
+        <div id="interaction-card"></div>
+        <div id="cascade-card"></div>
+        <div id="detail-card" class="detail-card"></div>
+      </div>
+      <div id="error" class="error" hidden></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div id="sources-footer"></div>
+    <p class="foot-meta">
+      Phase 0 · siehe <code>README.md</code> für Roadmap. Lizenzen der Datenquellen: <code>NOTICE.md</code>.
+      Keine echten Personendaten — Individuen sind parametrische Modelle (ab Phase 2).
+    </p>
+  </footer>
+
+  <script type="module" src="/web/app.js"></script>
+</body>
+</html>

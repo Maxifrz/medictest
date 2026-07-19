@@ -1,0 +1,22 @@
+{
+  "id": "cb2",
+  "name": "Cannabinoid-Rezeptor 2",
+  "shortName": "CB2",
+  "gene": { "value": "CNR2", "source": "uniprot", "confidence": "high", "mode": "lookup" },
+  "uniprot": { "value": "P34972", "source": "uniprot", "confidence": "high", "mode": "lookup" },
+  "ensembl": { "value": "ENSG00000188822", "source": "hpa", "confidence": "high", "mode": "lookup" },
+  "type": { "value": "GPCR (Klasse A, Gi/o-gekoppelt)", "source": "uniprot", "confidence": "high", "mode": "lookup" },
+  "function": {
+    "value": "Cannabinoid-Rezeptor, ueberwiegend auf Zellen des Immunsystems exprimiert (lymphatisches Gewebe, Darm). Vermittelt immunmodulatorische Effekte der Cannabinoide.",
+    "source": "uniprot",
+    "confidence": "high",
+    "mode": "lookup"
+  },
+  "pdbStructures": {
+    "source": "rcsb",
+    "confidence": "medium",
+    "mode": "lookup",
+    "note": "In Phase 0 nicht als Schwerpunkt ausgearbeitet; CB2 dient hier zur Demonstration der Gewebe-Achse (Immun-/Darmgewebe).",
+    "entries": []
+  }
+}

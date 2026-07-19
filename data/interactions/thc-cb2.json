@@ -1,0 +1,21 @@
+{
+  "id": "thc-cb2",
+  "compound": "thc",
+  "target": "cb2",
+  "action": { "value": "partieller Agonist", "source": "literatur", "confidence": "medium", "mode": "lookup" },
+  "affinity": {
+    "value": "Ki ≈ 36 nM",
+    "range": "aehnliche Groessenordnung wie CB1",
+    "source": "literatur",
+    "confidence": "medium",
+    "mode": "lookup",
+    "note": "Groessenordnungs-Platzhalter. In Phase 1 durch referenzierten Datenbankwert ersetzen."
+  },
+  "signaling": {
+    "value": "Gi/o-Kopplung mit Adenylylzyklase-Hemmung, vorwiegend in Immunzellen (immunmodulatorisch).",
+    "source": "literatur",
+    "confidence": "medium",
+    "mode": "lookup"
+  },
+  "cascade": null
+}

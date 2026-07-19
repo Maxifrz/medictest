@@ -1,0 +1,28 @@
+{
+  "id": "cb1-gio",
+  "target": "cb1",
+  "name": "CB1 → Gi/o-Signalkaskade",
+  "source": "literatur",
+  "confidence": "high",
+  "mode": "lookup",
+  "reactomeRef": {
+    "value": "R-HSA-416476 (G alpha (i) signalling events)",
+    "source": "reactome",
+    "confidence": "medium",
+    "mode": "lookup",
+    "note": "Uebergeordneter Gi-Signalweg; CB1-spezifische Verknuepfung in Phase 4 verfeinern."
+  },
+  "steps": [
+    { "order": 1, "text": "THC bindet als partieller Agonist an die orthosterische Tasche von CB1." },
+    { "order": 2, "text": "CB1 aktiviert heterotrimeres Gi/o-Protein (Austausch GDP → GTP an Gα)." },
+    { "order": 3, "text": "Gαi hemmt die Adenylylzyklase → intrazellulaeres cAMP faellt ab." },
+    { "order": 4, "text": "Gβγ hemmt spannungsabhaengige Ca²⁺-Kanaele und aktiviert einwaerts-gleichrichtende K⁺-Kanaele." },
+    { "order": 5, "text": "Praesynaptisch: reduzierter Ca²⁺-Einstrom → retrograde Hemmung der Neurotransmitter-Freisetzung (u. a. Glutamat, GABA)." }
+  ],
+  "netEffect": {
+    "value": "Daempfung der synaptischen Uebertragung in CB1-reichen Hirnregionen – neuronales Korrelat vieler zentraler Cannabinoid-Effekte.",
+    "source": "literatur",
+    "confidence": "medium",
+    "mode": "lookup"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "cb1",
+  "name": "Cannabinoid-Rezeptor 1",
+  "shortName": "CB1",
+  "gene": { "value": "CNR1", "source": "uniprot", "confidence": "high", "mode": "lookup" },
+  "uniprot": { "value": "P21554", "source": "uniprot", "confidence": "high", "mode": "lookup" },
+  "ensembl": { "value": "ENSG00000118432", "source": "hpa", "confidence": "high", "mode": "lookup" },
+  "type": { "value": "GPCR (Klasse A, Gi/o-gekoppelt)", "source": "uniprot", "confidence": "high", "mode": "lookup" },
+  "function": {
+    "value": "G-Protein-gekoppelter Rezeptor fuer endogene Cannabinoide (Anandamid/AEA, 2-Arachidonoylglycerol/2-AG) sowie Phytocannabinoide wie Δ⁹-THC. Reguliert u. a. Nahrungsaufnahme, Gedaechtnis, gastrointestinale Motilitaet, Angst und chronischen Schmerz.",
+    "source": "uniprot",
+    "confidence": "high",
+    "mode": "lookup"
+  },
+  "pdbStructures": {
+    "source": "rcsb",
+    "confidence": "high",
+    "mode": "lookup",
+    "note": "Experimentelle 3D-Strukturen von humanem CB1. THC selbst ist in keiner dieser Strukturen co-kristallisiert – Agonist-gebundene Strukturen dienen als Referenz-Pose.",
+    "entries": [
+      { "id": "5XRA", "resolution": "2.8 Å", "year": "2017", "state": "Agonist", "title": "CB1 im Komplex mit Agonist AM11542", "referencePose": true },
+      { "id": "5XR8", "resolution": "2.95 Å", "year": "2017", "state": "Agonist", "title": "CB1 im Komplex mit Agonist AM841" },
+      { "id": "6N4B", "resolution": "3.0 Å", "year": "2019", "state": "Agonist / G-Protein", "title": "CB1–G-Protein-Komplex" },
+      { "id": "6KPG", "resolution": "3.0 Å", "year": "2020", "state": "Agonist / G-Protein", "title": "Cryo-EM CB1–G-Protein-Komplex" },
+      { "id": "5TGZ", "resolution": "2.8 Å", "year": "2016", "state": "Antagonist", "title": "CB1 (Antagonist AM6538) – erste humane CB1-Struktur" }
+    ]
+  }
+}

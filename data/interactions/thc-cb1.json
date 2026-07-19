@@ -1,0 +1,21 @@
+{
+  "id": "thc-cb1",
+  "compound": "thc",
+  "target": "cb1",
+  "action": { "value": "partieller Agonist", "source": "literatur", "confidence": "high", "mode": "lookup" },
+  "affinity": {
+    "value": "Ki ≈ 40 nM",
+    "range": "≈ 5–80 nM (assayabhaengig)",
+    "source": "literatur",
+    "confidence": "medium",
+    "mode": "lookup",
+    "note": "Groessenordnungs-Platzhalter aus der Fachliteratur. In Phase 1 durch exakt referenzierten Wert aus ChEMBL / BindingDB / PDSP Ki DB mit voller Provenienz ersetzen."
+  },
+  "signaling": {
+    "value": "Gi/o-Kopplung → Hemmung der Adenylylzyklase → Abfall von cAMP → Hemmung spannungsabhaengiger Ca²⁺-Kanaele und Aktivierung von K⁺-Kanaelen. Praesynaptisch fuehrt dies zu retrograder Hemmung der Neurotransmitter-Freisetzung.",
+    "source": "literatur",
+    "confidence": "high",
+    "mode": "lookup"
+  },
+  "cascade": "cb1-gio"
+}

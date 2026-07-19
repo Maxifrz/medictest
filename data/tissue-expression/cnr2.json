@@ -1,0 +1,16 @@
+{
+  "target": "cb2",
+  "gene": "CNR2",
+  "ensembl": "ENSG00000188822",
+  "source": "hpa",
+  "summary": {
+    "value": "Tissue enhanced (lymphatisches Gewebe, Darm) – Immunsystem-Schwerpunkt.",
+    "source": "hpa",
+    "confidence": "high",
+    "mode": "lookup"
+  },
+  "tissues": [
+    { "region": "spleen",    "label": "Milz / lymphatisches Gewebe", "level": "high",     "nTPM": 8.4, "source": "hpa", "confidence": "high",   "mode": "lookup", "note": "CB2-Schwerpunkt: Immunzellen." },
+    { "region": "intestine", "label": "Darm (Immunzellen)",          "level": "moderate", "nTPM": 3.1, "source": "hpa", "confidence": "high",   "mode": "lookup" }
+  ]
+}

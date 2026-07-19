@@ -1,0 +1,24 @@
+{
+  "id": "thc",
+  "name": "Δ⁹-Tetrahydrocannabinol",
+  "shortName": "THC",
+  "aka": ["Delta-9-THC", "Dronabinol"],
+  "class": "Phytocannabinoid",
+  "identifiers": {
+    "pubchemCid": { "value": "16078", "source": "pubchem", "confidence": "high", "mode": "lookup" },
+    "molecularFormula": { "value": "C21H30O2", "source": "pubchem", "confidence": "high", "mode": "lookup" },
+    "molecularWeight": { "value": "314.5 g/mol", "source": "pubchem", "confidence": "high", "mode": "lookup" },
+    "inchikey": { "value": "CYQFCXCEBYINGO-IAGOWNOFSA-N", "source": "pubchem", "confidence": "high", "mode": "lookup" },
+    "isomericSmiles": { "value": "CCCCCC1=CC(=C2[C@@H]3C=C(CC[C@H]3C(OC2=C1)(C)C)C)O", "source": "pubchem", "confidence": "high", "mode": "lookup" },
+    "iupacName": { "value": "(6aR,10aR)-6,6,9-trimethyl-3-pentyl-6a,7,8,10a-tetrahydrobenzo[c]chromen-1-ol", "source": "pubchem", "confidence": "high", "mode": "lookup" }
+  },
+  "properties": {
+    "xlogp": { "value": "7", "source": "pubchem", "confidence": "high", "mode": "lookup", "note": "Sehr lipophil – erklaert die spaetere Fettverteilung (Phase 1) und lange terminale Halbwertszeit." }
+  },
+  "structureImage": {
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/16078/PNG",
+    "source": "pubchem",
+    "note": "2D-Strukturbild wird zur Laufzeit von PubChem geladen (nur online). Fallback: SMILES."
+  },
+  "primaryTargets": ["cb1", "cb2"]
+}

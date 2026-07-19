@@ -1,0 +1,19 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Node (falls spaeter ein Build-Schritt dazukommt)
+node_modules/
+dist/
+*.log
+
+# Python (falls Backend ab Phase 1)
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.sqlite
+*.sqlite3

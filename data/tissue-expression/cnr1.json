@@ -1,0 +1,21 @@
+{
+  "target": "cb1",
+  "gene": "CNR1",
+  "ensembl": "ENSG00000118432",
+  "source": "hpa",
+  "summary": {
+    "value": "Tissue enhanced (Gehirn, Fettgewebe); in vielen Geweben detektiert.",
+    "source": "hpa",
+    "confidence": "high",
+    "mode": "lookup"
+  },
+  "caveat": "RNA-nTPM-Werte unterschaetzen die CB1-Proteindichte im ZNS: CB1 gehoert (per Autoradiographie) zu den am dichtesten exprimierten GPCRs im Gehirn. Level daher biologisch, nicht rein nach nTPM, eingestuft.",
+  "tissues": [
+    { "region": "brain",           "label": "Gehirn / ZNS",        "level": "very_high", "nTPM": 18.6, "source": "hpa", "confidence": "high",   "mode": "lookup", "note": "Basalganglien, Kleinhirn, Hippocampus, Cortex besonders dicht." },
+    { "region": "spinalCord",      "label": "Rueckenmark",         "level": "high",      "source": "literatur", "confidence": "medium", "mode": "lookup", "note": "Beteiligt an Schmerzmodulation." },
+    { "region": "peripheralNerves","label": "Periphere Nerven",    "level": "moderate",  "source": "literatur", "confidence": "medium", "mode": "lookup" },
+    { "region": "adipose",         "label": "Fettgewebe",          "level": "moderate",  "nTPM": 18.3, "source": "hpa", "confidence": "high",   "mode": "lookup", "note": "Auch pharmakokinetisch relevant: THC-Depot (Phase 1)." },
+    { "region": "intestine",       "label": "Magen-Darm-Trakt",    "level": "low",       "source": "literatur", "confidence": "medium", "mode": "lookup", "note": "Reguliert Motilitaet." },
+    { "region": "liver",           "label": "Leber",               "level": "low",       "source": "literatur", "confidence": "low",    "mode": "lookup" }
+  ]
+}

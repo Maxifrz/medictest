@@ -1,0 +1,69 @@
+{
+  "_comment": "Registry aller Datenquellen. Jede Angabe in den Entitaeten referenziert eine dieser 'id's ueber ihr 'source'-Feld. Lizenzen VOR kommerzieller Nutzung pruefen (siehe NOTICE.md).",
+  "sources": [
+    {
+      "id": "pubchem",
+      "name": "PubChem",
+      "org": "NIH / NLM",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/",
+      "access": "REST (PUG-REST)",
+      "license": "frei / gemeinfrei",
+      "layers": [1, 2]
+    },
+    {
+      "id": "uniprot",
+      "name": "UniProt",
+      "org": "UniProt Consortium (EBI/SIB/PIR)",
+      "url": "https://www.uniprot.org/",
+      "access": "REST",
+      "license": "CC BY 4.0",
+      "layers": [2, 4]
+    },
+    {
+      "id": "rcsb",
+      "name": "RCSB Protein Data Bank",
+      "org": "RCSB PDB",
+      "url": "https://www.rcsb.org/",
+      "access": "REST",
+      "license": "frei / gemeinfrei",
+      "layers": [2]
+    },
+    {
+      "id": "hpa",
+      "name": "Human Protein Atlas",
+      "org": "Human Protein Atlas project",
+      "url": "https://www.proteinatlas.org/",
+      "access": "API + Download",
+      "license": "frei (Attribution, CC BY-SA 3.0)",
+      "layers": [4]
+    },
+    {
+      "id": "chembl",
+      "name": "ChEMBL",
+      "org": "EMBL-EBI",
+      "url": "https://www.ebi.ac.uk/chembl/",
+      "access": "API + Bulk",
+      "license": "CC BY-SA 3.0",
+      "layers": [2]
+    },
+    {
+      "id": "reactome",
+      "name": "Reactome",
+      "org": "Reactome",
+      "url": "https://reactome.org/",
+      "access": "API + Download",
+      "license": "CC BY 4.0",
+      "layers": [3]
+    },
+    {
+      "id": "literatur",
+      "name": "Fachliteratur / Lehrbuch",
+      "org": "diverse",
+      "url": "",
+      "access": "manuell kuratiert",
+      "license": "n/a (Zusammenfassung etablierten Wissens)",
+      "layers": [3, 4, 6],
+      "note": "Platzhalter fuer etabliertes Lehrbuchwissen. In spaeteren Phasen wo moeglich durch primaer-referenzierte Datenbankwerte ersetzen."
+    }
+  ]
+}
